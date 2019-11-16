@@ -33,7 +33,7 @@ int	rShift=0, gShift=0, bShift=0, aShift=0;
 int g_nSimulatedGraphics = 0;
 
 // CGA palette 1 (4 colors) cyan magenta black white
-const djColor djPALETTE_CGA[4] {
+const djColor djPALETTE_CGA[4] = {
 	djColor(0,0,0),//black
 	djColor(0x55,0xFF,0xFF),//bright cyan
 	djColor(0xFF,0x55,0xFF),//bright magenta
@@ -42,7 +42,7 @@ const djColor djPALETTE_CGA[4] {
 	//djColor(0x55,0x55,0x55)//dark grey as white/black dither
 };
 // EGA standard 16-colors
-const djColor djPALETTE_EGA[16] {
+const djColor djPALETTE_EGA[16] = {
 	djColor(0,0,0),//black
 	djColor(0,0,0xAA),//blue
 	djColor(0,0xAA,0),//green
@@ -115,7 +115,7 @@ djVisual* djgOpenVisual( const char *vistype, int w, int h, int bpp, bool bBackb
 		if (pSurface!=NULL)
 		{
 			//SDL_SetColorKey(pSurface, SDL_SRCCOLORKEY|SDL_RLEACCEL, SDL_MapRGB(pSurface->format, 255, 0, 255));
-			pVis->pSurface = SDL_DisplayFormat(pSurface);
+			pVis->pSurface = SDL_DisplayFormatAlpha(pSurface);
 			SDL_FreeSurface(pSurface);
 		}
 	}

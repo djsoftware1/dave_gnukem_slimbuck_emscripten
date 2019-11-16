@@ -187,6 +187,7 @@ const char *GetKeyString(int nSDLKeyCode)
 	case SDLK_y:			return "Y";
 	case SDLK_z:			return "Z";
 	case SDLK_DELETE:		return "DEL";
+        /*
 	case SDLK_WORLD_0:		return "WORLD0";
 	case SDLK_WORLD_1:		return "WORLD1";
 	case SDLK_WORLD_2:		return "WORLD2";
@@ -283,6 +284,7 @@ const char *GetKeyString(int nSDLKeyCode)
 	case SDLK_WORLD_93:		return "WORLD93";
 	case SDLK_WORLD_94:		return "WORLD94";
 	case SDLK_WORLD_95:		return "WORLD95";
+        */
 	case SDLK_KP0:			return "KEYPAD0";
 	case SDLK_KP1:			return "KEYPAD1";
 	case SDLK_KP2:			return "KEYPAD2";
@@ -335,8 +337,8 @@ const char *GetKeyString(int nSDLKeyCode)
 	case SDLK_LALT:			return "ALT";
 	case SDLK_RMETA:		return "RMETA";
 	case SDLK_LMETA:		return "LMETA";
-	case SDLK_LSUPER:		return "LSUPER";
-	case SDLK_RSUPER:		return "RSUPER";
+	//case SDLK_LSUPER:		return "LSUPER";
+	//case SDLK_RSUPER:		return "RSUPER";
 	case SDLK_MODE:			return "MODE";
 	case SDLK_COMPOSE:		return "COMPOSE";
 	case SDLK_HELP:			return "HELP";
@@ -345,7 +347,7 @@ const char *GetKeyString(int nSDLKeyCode)
 	case SDLK_BREAK:		return "BREAK";
 	case SDLK_MENU:			return "MENU";
 	case SDLK_POWER:		return "POWER";
-	case SDLK_EURO:			return "EURO";
+	//case SDLK_EURO:			return "EURO";
 	default:
 		return "UNKNOWN";
 	}

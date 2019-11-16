@@ -8,12 +8,12 @@
 # 2017-07-29: Remove obsolete standalone-editor-related stuff, and add new thing_monsters.o
 #
 
-CPP = g++
-CC = gcc
+CPP = em++
+CC = emcc
 
 
 # dj2016-10 Add L -I/usr/local/include/SDL in process of getting this working on Mac OS X - not sure if this is 'bad' to just have both /usr/include and /usr/local/include??
-INCLUDEDIRS= -I/usr/include/SDL -I/usr/local/include/SDL 
+#INCLUDEDIRS= -I/usr/include/SDL -I/usr/local/include/SDL 
 
 #CCFLAGS = -O -Wall $(INCLUDEDIRS)
 
@@ -25,8 +25,9 @@ CCFLAGS = -Wall -Wno-switch -DDEBUG $(INCLUDEDIRS)
 #Release version:
 #CCFLAGS = -O -Wall -I/usr/local/include -DHAVE_SOUND $(INCLUDEDIRS)
 
-LIBS = -lSDL -lSDLmain -lSDL_mixer -lpthread 
-BIN = davegnukem
+#LIBS = -lSDL -lSDLmain -lSDL_mixer -lpthread 
+LIBS = -lSDL -lpthread 
+BIN = davegnukem.html
 
 
 ifeq ($(OS),Windows_NT)
@@ -75,11 +76,12 @@ OBJFILES = src/main.o     src/graph.o   src/game.o         src/menu.o\
            src/sdl/djtime.o \
            src/sys_error.o src/sys_log.o src/m_misc.cpp
 
+FLAGS=-s WASM=1 -s USE_SDL_MIXER=1 --preload-file ./data -s ALLOW_MEMORY_GROWTH=1 --use-preload-plugins -s STB_IMAGE=1
+
 default: gnukem
 
 gnukem: $(OBJFILES)
-	$(CPP) -o $(BIN) $(OBJFILES) $(LIBS)
-
+	$(CPP) -o $(BIN) $(OBJFILES) $(LIBS) $(FLAGS)
 clean:
 	rm -f $(BIN) *~ core \#*
 	find src -name '*.o' | xargs rm -f
@@ -98,5 +100,5 @@ fixme:
 	$(CPP) $(CCFLAGS) -c $< -o $@
 
 %.o: %.cpp
-	$(CPP) $(CCFLAGS) -c $< -o $@
+	$(CPP) $(CCFLAGS) $(FLAGS) -c $< -o $@
 

@@ -10,6 +10,7 @@ Created: 09/2001
 #include "settings.h"
 #include "SDL.h"
 #include <vector>
+#include <stdio.h>
 using namespace std;
 
 // Default keys
@@ -144,6 +145,7 @@ void InitialiseGameKeySystem()
 	g_anValidGameKeys.push_back(SDLK_y);
 	g_anValidGameKeys.push_back(SDLK_z);
 	g_anValidGameKeys.push_back(SDLK_DELETE);
+        /*
 	g_anValidGameKeys.push_back(SDLK_WORLD_0);
 	g_anValidGameKeys.push_back(SDLK_WORLD_1);
 	g_anValidGameKeys.push_back(SDLK_WORLD_2);
@@ -240,6 +242,7 @@ void InitialiseGameKeySystem()
 	g_anValidGameKeys.push_back(SDLK_WORLD_93);
 	g_anValidGameKeys.push_back(SDLK_WORLD_94);
 	g_anValidGameKeys.push_back(SDLK_WORLD_95);
+        */
 	g_anValidGameKeys.push_back(SDLK_KP0);
 	g_anValidGameKeys.push_back(SDLK_KP1);
 	g_anValidGameKeys.push_back(SDLK_KP2);
